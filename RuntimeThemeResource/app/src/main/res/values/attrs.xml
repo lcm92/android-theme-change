@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="activity_background" format="reference" />
+    <attr name="avod_default_button_background" format="reference" />
+    <attr name="avod_icon_info" format="reference" />
+</resources>

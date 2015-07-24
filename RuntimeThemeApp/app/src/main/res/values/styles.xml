@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.NoTitleBar.Fullscreen">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="TranslucentTheme" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.85</item>
+    </style>
+
+    <style name="button_default_style">
+        <item name="android:layout_width">@dimen/icon_button_width</item>
+        <item name="android:layout_height">@dimen/icon_button_height</item>
+        <item name="android:background">@drawable/theme_btn_default_bg_state</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="list_item_horizontal_space">
+        <item name="android:layout_width">@dimen/list_item_horizontal_space</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="list_item_vertical_space">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/list_item_vertical_space</item>
+    </style>
+
+    <style name="list_item_primary_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_item_primary_text_size</item>
+        <!--<item name="android:fontFamily">sans-serif-light</item>-->
+        <!--<item name="android:layout_gravity">center_horizontal</item>-->
+        <item name="android:paddingLeft">@dimen/list_item_primary_text_padding</item>
+        <item name="android:textColor">@color/theme_list_item_text_state</item>
+    </style>
+
+    <style name="list_item_secondary_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_item_secondary_text_size</item>
+        <!--<item name="android:fontFamily">sans-serif-light</item>-->
+        <!--<item name="android:layout_gravity">center_horizontal</item>-->
+        <item name="android:paddingLeft">@dimen/list_item_secondary_text_padding</item>
+        <item name="android:textColor">@color/theme_list_item_text_state</item>
+    </style>
+
+</resources>

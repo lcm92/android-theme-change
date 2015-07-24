@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="red">#FFFF0000</color>
+    <color name="green">#FF00FF00</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="midnight_blue">#FF191970</color>
+    <color name="light_sky_blue">#AA87CEFA</color>
+    <color name="orange_yellow">#FFFFCC00</color>
+    <color name="crimson">#AADC143C</color>
+
+    <color name="gold">#FFD700</color>
+    <color name="orange">#FFA500</color>
+    <color name="dark_orange">#FF8C00</color>
+
+    <color name="theme_primary_text_color">#FF660000</color>
+    <color name="theme_divider_color">#22000000</color>
+
+    <drawable name="red">#FFFF0000</drawable>
+    <drawable name="green">#FF00FF00</drawable>
+    <drawable name="blue">#FF0000FF</drawable>
+    <drawable name="midnight_blue">#FF191970</drawable>
+    <drawable name="light_sky_blue">#AA87CEFA</drawable>
+    <drawable name="orange_yellow">#FFFFCC00</drawable>
+    <drawable name="crimson">#AADC143C</drawable>
+
+    <drawable name="list_item_pressed_color">#FF660000</drawable>
+
+</resources>

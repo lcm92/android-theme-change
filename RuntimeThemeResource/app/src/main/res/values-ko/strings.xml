@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ThemeJap</string>
+
+    <string name="theme_time_msg">1시간</string>
+    <string name="empty">없음</string>
+
+    <string name="theme_info">정보</string>
+</resources>

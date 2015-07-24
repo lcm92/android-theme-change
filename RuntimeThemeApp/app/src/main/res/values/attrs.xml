@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="activity_background" format="reference" />
+    <attr name="avod_default_button_background" format="reference" />
+    <attr name="avod_icon_info" format="reference" />
+
+    <declare-styleable name="ThemeTextView">
+        <attr name="typeface" format="string" />
+        <attr name="use_app_theme" format="boolean" />
+        <attr name="app_theme_edit_mode">
+            <flag name="size" value="0x0001" />
+            <flag name="style" value="0x0002" />
+            <flag name="color" value="0x0004" />
+        </attr>
+    </declare-styleable>
+</resources>
