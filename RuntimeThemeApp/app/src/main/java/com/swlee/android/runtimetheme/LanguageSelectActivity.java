@@ -41,78 +41,19 @@ public class LanguageSelectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_select);
 
-        //SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String strResourcePkgName = ResourceManager.getResourceAppPackageName(this);
-        Context resourceApkContext = ResourceManager.getResourceAppContext(this);
-        Resources resources = ResourceManager.getResourceAppResources(this);
-
-        if (null != resourceApkContext && null != resources) {
-            // Sets Activity background image
-            int otherAppResourceId = resources.getIdentifier("theme_app_bg", "drawable", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                Drawable drawable = resources.getDrawable(otherAppResourceId);
-                if (null != drawable) {
-                    View rootView = findViewById(R.id.activity_root);
-                    if (null != rootView)
-                        rootView.setBackgroundDrawable(drawable);
-                }
-            }
-
-            // Sets TextView text color
-            TextView tvSelectLanguage = (TextView) findViewById(R.id.tv_select_language);
-            otherAppResourceId = resources.getIdentifier("theme_primary_text_color", "color", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                int iColor = resources.getColor(otherAppResourceId);
-                if (null != tvSelectLanguage)
-                    tvSelectLanguage.setTextColor(iColor);
-            }
-
-            // Sets selectors into the button Korean
-            Button btnKor = (Button) findViewById(R.id.btn_kor);
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_bg_state", "drawable", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                Drawable drawable = resources.getDrawable(otherAppResourceId);
-                if (null != drawable && null != btnKor)
-                    btnKor.setBackgroundDrawable(drawable);
-            }
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_text_state", "color", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                ColorStateList csl = resources.getColorStateList(otherAppResourceId);
-                if (null != csl && null != btnKor)
-                    btnKor.setTextColor(csl);
-            }
-
-            // Sets selectors into the button Chinese
-            Button btnChinese = (Button) findViewById(R.id.btn_chinese);
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_bg_state", "drawable", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                Drawable drawable = resources.getDrawable(otherAppResourceId);
-                if (null != drawable && null != btnChinese)
-                    btnChinese.setBackgroundDrawable(drawable);
-            }
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_text_state", "color", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                ColorStateList csl = resources.getColorStateList(otherAppResourceId);
-                if (null != csl && null != btnChinese)
-                    btnChinese.setTextColor(csl);
-            }
-
-            // Sets selectors into the button English
-            Button btnEng = (Button) findViewById(R.id.btn_eng);
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_bg_state", "drawable", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                Drawable drawable = resources.getDrawable(otherAppResourceId);
-                if (null != drawable && null != btnEng)
-                    btnEng.setBackgroundDrawable(drawable);
-            }
-            otherAppResourceId = resources.getIdentifier("theme_btn_default_text_state", "color", strResourcePkgName);
-            if (otherAppResourceId != 0) {
-                ColorStateList csl = resources.getColorStateList(otherAppResourceId);
-                if (null != csl && null != btnEng)
-                    btnEng.setTextColor(csl);
-            }
-
-        }
+        // Sets Activity background image
+        ResourceManager.findViewById(this, R.id.ll_activity_root, new int[]{R.drawable.theme_app_bg});
+        // Sets TextView text color
+        ResourceManager.findViewById(this, R.id.tv_select_language, new int[]{R.color.theme_primary_text_color});
+        // Sets selectors into the button Korean
+        ResourceManager.findViewById(this, R.id.btn_kor,
+                new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state});
+        // Sets selectors into the button Chinese
+        ResourceManager.findViewById(this, R.id.btn_chinese,
+                new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state});
+        // Sets selectors into the button English
+        ResourceManager.findViewById(this, R.id.btn_eng,
+                new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state});
     }
 
     @Override

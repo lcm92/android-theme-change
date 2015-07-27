@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name">ThemeJapan</string>
-
-    <string name="theme_time_msg">一小时</string>
-    <string name="empty">空</string>
-
-    <string name="theme_info">情報</string>
+    <string name="app_name">RuntimeThemeResource</string>
+    <string name="theme_information_activity_title">"This is from RuntimeThemeResource app."</string>
+    <string name="theme_time_msg">"一小时"</string>
+    <string name="empty">"空"</string>
+    <string name="theme_info">"情報"</string>
 </resources>

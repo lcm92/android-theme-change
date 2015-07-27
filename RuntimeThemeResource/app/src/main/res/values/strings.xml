@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">RuntimeThemeResource</string>
-    <string name="theme_information_activity_title">"Title in RuntimeThemeResource app"</string>
-
+    <string name="theme_information_activity_title">"This is from RuntimeThemeResource app."</string>
     <string name="theme_time_msg">1 hour</string>
     <string name="empty">Empty</string>
-
     <string name="theme_info">Info</string>
 </resources>

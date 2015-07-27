@@ -17,8 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 
 /**
@@ -27,7 +29,7 @@ import android.widget.Toast;
  * Shows how to use ResourceManager to use another app's resources when we use our own layout file in this app.
  * In this example, another app(RuntimeThemeResource) has only resources such as images, string, color and layout.
  *
- * Korean and Chines string resources are only in the RuntimeThemeResource app. So, you will see Korean and Chines after you install the RuntimeThemeResource app.
+ * Korean and Chinese string resources are only in the RuntimeThemeResource app. So, you will see Korean and Chines after you install the RuntimeThemeResource app.
  *
  */
 public class InfoActivity extends Activity {
@@ -38,15 +40,35 @@ public class InfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        View rootView = findViewById(R.id.activity_root);
-        if (null != rootView)
-            ResourceManager.setResourcesByResourceIds(this, rootView, new int[]{R.drawable.theme_app_bg});
+        // Set background image from RuntimeThemeResource when there is RuntimeThemeResource app installed.
+        ResourceManager.findViewById(this, R.id.ll_activity_info_root, new int[]{R.drawable.theme_app_bg});
 
-        TextView tv = (TextView) findViewById(R.id.tv_info_title);
-        ResourceManager.setResourcesByResourceIds(this, tv, new int[]{R.string.theme_information_activity_title, R.color.theme_primary_text_color});
+        // Set text and text color from RuntimeThemeResource when there is RuntimeThemeResource app installed.
+        ResourceManager.findViewById(this, R.id.tv_info_title,
+                new int[]{R.string.theme_information_activity_title, R.color.theme_primary_text_color});
 
-        Button dummy = (Button) findViewById(R.id.btn_info);
-        ResourceManager.setResourcesByResourceIds(this, dummy, new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state, R.string.theme_info});
+        // Set button background selector, text color state list and string from RuntimeThemeResource when there is RuntimeThemeResource app installed.
+        Button btn = (Button) ResourceManager.findViewById(this, R.id.btn_info,
+                new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state, R.string.theme_info});
+        if (null != btn) {
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(InfoActivity.this, ResourceManager.getString(InfoActivity.this, R.string.theme_info), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        ToggleButton btnCallAttendant = (ToggleButton) ResourceManager.findViewById(this, R.id.toggle_btn_call_front,
+                new int[]{R.drawable.theme_btn_default_bg_state, R.color.theme_btn_default_text_state});
+        if (null != btn) {
+            btnCallAttendant.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Toast.makeText(InfoActivity.this, isChecked ? "ON" : "OFF", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
@@ -69,16 +91,6 @@ public class InfoActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onClickHandler(View v) {
-        if (null != v) {
-            switch (v.getId()) {
-                case R.id.btn_info:
-                    //finish();
-                    break;
-            }
-        }
     }
 
     @Override

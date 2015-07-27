@@ -37,12 +37,12 @@ public class MobileAndOsListActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // If there is no RuntimeThemeResource App installed, returned layout is of this app's.
-        View layout = ResourceManager.getLayoutByResourceId(this, R.layout.activity_mobile_n_os_list);
+        // If there is no RuntimeThemeResource App installed, returned layout is the one that is in this app's resource.
+        View layout = ResourceManager.findLayoutById(this, R.layout.activity_mobile_n_os_list);
         if (null != layout) {
             setContentView(layout);
 
-            ImageButton imgBtn = (ImageButton) ResourceManager.getViewByResourceId(this, layout, R.id.btn_flight_info);
+            ImageButton imgBtn = (ImageButton) ResourceManager.findViewById(this, layout, R.id.btn_flight_info);
             if (null != imgBtn)
                 imgBtn.setOnClickListener(mFlightInfoOnClick);
 

@@ -19,7 +19,7 @@ import java.util.HashMap;
  */
 public class RuntimeResourceListAdapter extends BaseAdapter {
 
-    private static final String LOG_TAG = RuntimeResourceListAdapter.class.getSimpleName();
+    //private static final String LOG_TAG = RuntimeResourceListAdapter.class.getSimpleName();
 
     private int mListItemLayoutResId;
     private Context mContext;
@@ -59,25 +59,18 @@ public class RuntimeResourceListAdapter extends BaseAdapter {
         if (null != convertView)
             view = convertView;
         else
-            view = ResourceManager.getLayoutByResourceId(mContext, mListItemLayoutResId);
+            view = ResourceManager.findLayoutById(mContext, mListItemLayoutResId);
 
         if (null != view && null != mListData && 0 < mListData.size()) {
             HashMap<String, String> item = (HashMap<String, String>) getItem(position);
 
-            TextView tv1 = (TextView) ResourceManager.getViewByResourceId(mContext, view, R.id.tv_text1);
-            if (null != tv1) {
-                // We don't need to do below statement!
-                //ResourceManager.setResourcesByResourceIds(mContext, tv1, new int[]{R.color.theme_list_item_text_state});
-                if (null != item)
-                    tv1.setText(item.get("name"));
-            }
+            TextView tv1 = (TextView) ResourceManager.findViewById(mContext, view, R.id.tv_text1);
+            if (null != tv1 && null != item)
+                tv1.setText(item.get("name"));
 
-            TextView tv2 = (TextView) ResourceManager.getViewByResourceId(mContext, view, R.id.tv_text2);
-            if (null != tv2) {
-                // We don't need to do below statement!
-                //ResourceManager.setResourcesByResourceIds(mContext, tv2, new int[]{R.color.theme_list_item_text_state});
-                if (null != item)
-                    tv2.setText(item.get("type"));
+            TextView tv2 = (TextView) ResourceManager.findViewById(mContext, view, R.id.tv_text2);
+            if (null != tv2 && null != item) {
+                tv2.setText(item.get("type"));
             }
         }
 
